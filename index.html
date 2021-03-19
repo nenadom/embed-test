@@ -22,59 +22,60 @@
     <h1>Embed still working</h1>
     <div class="container">
       <iframe
+        id="sofa-standings-embed-177-34951"
         width="100%"
-        height="170"
-        src="https://sec.sofascore.dev/event/9295135/attack-momentum/embed"
+        height="493"
+        src="http://localhost:3000/tournament/177/34951/standings/tables/embed"
         frameborder="0"
         scrolling="no"
-      ></iframe>
-      <div style="font-size: 12px; font-family: Arial, sans-serif">
-        <a href="https://sec.sofascore.dev/wucskUq" target="_blank"
-          >Melbourne City - Sydney FC Live Score</a
-        >
-      </div>
-
-      <iframe
-        id="sofa-totw-embed-136-34942-5042"
-        width="100%"
-        height="528"
-        style="display: block; max-width: 440px"
-        src="https://sec.sofascore.dev/tournament/136/34942/5042/team-of-the-week/embed"
-        frameborder="0"
-        scrolling="no"
-      ></iframe>
-      <div
-        style="
-          font-size: 12px;
-          font-family: Arial, sans-serif;
-          text-align: left;
-        "
+        style="height: 493px !important"
       >
-        Team of the Week provided by
-        <a target="_blank" href="https://localhost/">SofaScore LiveScore</a>
+      </iframe>
+      <script>
+        (function (el) {
+          console.log("handlemessage", el);
+          window.addEventListener("message", (event) => {
+            if (
+              event.origin.includes("localhost") ||
+              event.origin.startsWith("https://www.sofascore")
+            ) {
+              console.log("MESSAGE RECEIVED", event.data, el.id);
+              if (el.id === event.data.id) {
+                el.style.height = `${event.data.height}px`;
+              }
+            }
+          });
+        })(document.getElementById("sofa-standings-embed-177-34951"));
+      </script>
+      <div style="font-size: 12px; font-family: Arial, sans-serif">
+        Standings provided by
+        <a target="_blank" href="https://www.sofascore.com/"
+          >SofaScore LiveScore</a
+        >
       </div>
       <script
         type="text/javascript"
         src="https://www.sofascore.com/bundles/sofascoreweb/js/bin/util/embed.min.js"
-      />
-      <script type="text/javascript">
-        sofa_embed("sofa-totw-embed-136-34942-5042", window);
-      </script>
+      ></script>
+    </div>
 
-      <script>
+    <hr />
+
+    <div class="container">
+      <!-- <script>
         function resetIframeHeight(o) {
           o.style.height =
             o.contentWindow.document.documentElement.scrollHeight + "px";
         }
       </script>
       <iframe
-        id="sofa-standings-embed-144-34942"
+        id="sofa-standings-embed-177-34951"
         width="100%"
-        height="493"
-        src="https://sec.sofascore.dev/tournament/144/34942/standings/tables/embed"
+        height="577"
+        src="http://localhost:3000/tournament/177/34951/standings/tables/embed"
         frameborder="0"
         scrolling="no"
-        style="height: 493px !important"
+        style="height: 577px !important"
         onload="resetIframeHeight(this)"
       >
       </iframe>
@@ -96,95 +97,66 @@
         }
       </script>
       <iframe
+        id="sofa-standings-embed-53-29200"
         width="100%"
-        height="710"
+        height="605"
+        src="http://localhost:3000/tournament/53/29200/standings/tables/embed"
         frameborder="0"
         scrolling="no"
-        src="https://sec.sofascore.dev/embed/player/neil-kilkenny/580"
+        style="height: 605px !important"
         onload="resetIframeHeight(this)"
       >
       </iframe>
-
-      <iframe
-        width="100%"
-        height="580"
-        src="https://sec.sofascore.dev/event/9232032/lineups/embed"
-        frameborder="0"
-        scrolling="no"
-        style="max-width: 770px"
-      ></iframe>
       <div style="font-size: 12px; font-family: Arial, sans-serif">
-        <a href="https://sec.sofascore.dev/NsLgb" target="_blank"
-          >Atlético Madrid - Chelsea Live Score</a
+        Standings provided by
+        <a target="_blank" href="https://www.sofascore.com/"
+          >SofaScore LiveScore</a
         >
       </div>
-    </div>
+      <script
+        type="text/javascript"
+        src="https://www.sofascore.com/bundles/sofascoreweb/js/bin/util/embed.min.js"
+      ></script> -->
 
-    <h1>Pages blocked:</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Before</th>
-          <th>After</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Login</td>
-          <td><iframe src="https://www.sofascore.com/user/login"></iframe></td>
-          <td><iframe src="https://sec.sofascore.dev/user/login"></iframe></td>
-        </tr>
-        <tr>
-          <td>Sport list</td>
-          <td><iframe src="https://www.sofascore.com/"></iframe></td>
-          <td><iframe src="https://sec.sofascore.dev/"></iframe></td>
-        </tr>
-        <tr>
-          <td>Favorites</td>
-          <td><iframe src="https://www.sofascore.com/favorites"></iframe></td>
-          <td><iframe src="https://sec.sofascore.dev/favorites"></iframe></td>
-        </tr>
-        <tr>
-          <td>Team</td>
-          <td>
-            <iframe
-              src="https://www.sofascore.com/team/football/ajax/2953"
-            ></iframe>
-          </td>
-          <td>
-            <iframe
-              src="https://sec.sofascore.dev/team/football/ajax/2953"
-            ></iframe>
-          </td>
-        </tr>
-        <tr>
-          <td>UT</td>
-          <td>
-            <iframe
-              src="https://www.sofascore.com/tournament/football/netherlands/eredivisie/37"
-            ></iframe>
-          </td>
-          <td>
-            <iframe
-              src="https://sec.sofascore.dev/tournament/football/netherlands/eredivisie/37"
-            ></iframe>
-          </td>
-        </tr>
-        <tr>
-          <td>Event</td>
-          <td>
-            <iframe
-              src="https://www.sofascore.com/ajax-young-boys/VYsdjb"
-            ></iframe>
-          </td>
-          <td>
-            <iframe
-              src="https://sec.sofascore.dev/ajax-young-boys/VYsdjb"
-            ></iframe>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      <!-- <iframe
+        id="sofa-standings-embed-4-17279"
+        width="100%"
+        height="437"
+        src="http://localhost:3000/tournament/4/17279/standings/tables/embed"
+        frameborder="0"
+        scrolling="no"
+        style="height: 437px !important"
+        onload="resetIframeHeight(this)"
+      >
+      </iframe>
+      <script>
+        (function (el) {
+          console.log("handlemessage", el);
+          window.addEventListener("message", (event) => {
+            if (
+              event.origin.includes("localhost") ||
+              event.origin.startsWith("https://www.sofascore")
+            ) {
+              console.log("MESSAGE RECEIVED", event.data);
+              const height = +event.data;
+              if (!isNaN(height)) {
+                console.log("setting height...");
+                el.style.height = height + "px";
+              }
+            }
+          });
+        })(document.getElementById("sofa-standings-embed-4-17279"));
+      </script>
+      <div style="font-size: 12px; font-family: Arial, sans-serif">
+        Standings provided by
+        <a target="_blank" href="https://www.sofascore.com/"
+          >SofaScore LiveScore</a
+        >
+      </div>
+      <script
+        type="text/javascript"
+        src="https://www.sofascore.com/bundles/sofascoreweb/js/bin/util/embed.min.js"
+      ></script> -->
+    </div>
   </body>
 </html>
